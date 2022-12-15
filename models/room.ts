@@ -76,7 +76,7 @@ const reviewsSchema = new mongoose.Schema({
 const roomSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please enter room name"],
+    required: true,
     trim: true,
     maxLength: [100, "Room name cannot exceed 100 characters"],
   },
