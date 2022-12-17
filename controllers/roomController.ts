@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Room } from "../models/room";
+import Room  from "../models/room";
 import ErrorHandler from "../utils/errorhandler";
 import { catchAsyncError } from "../middlewares/catchAsyncErrors";
 import APIFeatures from "../utils/apiFeatures";
@@ -10,6 +10,7 @@ const getAllRooms = async (
   next: any
 ) => {
   try {
+
     const resPerPage = 4;
 
     const roomsCount = await Room.countDocuments();
@@ -101,6 +102,9 @@ const getSingleRoom = async (
       return next(new ErrorHandler("Room not found in this ID", 404));
     }
 
+    console.log(room);
+    
+
     res.status(200).json({
       success: true,
       room,
@@ -108,7 +112,7 @@ const getSingleRoom = async (
   } catch (error: any) {
     res.status(400).json({
       success: false,
-      error: error.message,
+      error: error.message.data,
     });
   }
 };

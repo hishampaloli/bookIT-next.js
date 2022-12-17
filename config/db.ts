@@ -10,7 +10,7 @@ const dbConnect = () => {
       // @ts-ignore
       useNewUrlParser: true,
     })
-    .then((con) => {
+    .then((con: any) => {
       console.log("DB CONNECTED SUCCESSFULLY");
     });
 };

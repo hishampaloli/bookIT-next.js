@@ -168,5 +168,4 @@ roomSchema.statics.build = (attrs: RoomAttrs) => {
 
 const Room = mongoose.model<RoomDoc, RoomModel>("Room", roomSchema);
 
-
-export { Room };
+export default mongoose.models.Room || Room;
